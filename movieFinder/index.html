@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+    <div class="btn-group btn-group-lg">
+        <a class="btn btn-secondary" data-role="nav-popular" href="#popular">Popular</a>
+        <a class="btn btn-secondary" data-role="nav-top" href="#top">Top</a>
+    </div>
+</div>
+
+    <div id="results"></div>
+</div>
+
+<script src="entry.js" type="module"></script>
+
+<script id="popularTemplate" type="text/template">
+    <div class="container">
+        <div class="row">
+            {{#each list}}
+            <div class="col-md-3">
+              <div class="well text-center">
+                <a href="#popular/{{id}}">                    
+                    <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}" 
+                         onerror="this.onerror=null;this.src='images/no_image.png';"
+                         class="img">
+
+                </a>
+                <h5>{{ original_name }}</h5>
+              </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</script>
+
+<script id="topTemplate" type="text/template">
+    <div class="container">
+            <div class="row">
+                {{#each list}}
+                <div class="col-md-3">
+                  <div class="well text-center">
+                    <a href="#popular/{{id}}">
+                        
+                        <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}" 
+                             onerror="this.onerror=null;this.src='images/no_image.png';"
+                             class="img">
+                    
+                    </a>
+                    <h5>{{ original_name }}</h5>
+                  </div>
+                </div>
+                {{/each}}
+    </div>
+</script>
+
+<script id="filmTemplate" type="text/template">
+    <div class="row">
+            <div class="col-md-4">
+                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}"
+                     onerror="this.onerror=null;this.src='images/no_image.png';"
+                     class="img">
+            </div>
+            <div class="col-md-8">
+              <h3>{{ original_name }}</h3>
+              <ul class="list-group">
+                <li class="list-group-item"><strong>Plot:</strong> {{ overview }} </li>
+                <li class="list-group-item"><strong>Number of seasons:</strong> {{ number_of_seasons }} </li>
+                <li class="list-group-item"><strong>Number of episodes:</strong> {{ number_of_episodes }} </li>
+              </ul>
+            </div>
+    </div>
+    <div class="container">
+    <h4 class="text-center">Seasons</h4>
+    <div class="row">
+    
+    {{#each seasons}}
+    
+    <div class="col-md-3">
+      <div class="well text-center">
+        <a href=""><img 
+                       src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}"
+                       onerror="this.onerror=null;this.src='images/no_image.png';"
+                       class="img">
+        </a>
+        <h5>{{ name }}</h5>
+      </div>
+    </div>
+      {{/each}}
+    </div>
+</div>   
+</script>
+      
+</body>
+</html>
+
