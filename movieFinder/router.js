@@ -13,7 +13,6 @@ function getRouteInfo() {
     }
 
     let [name, id, season, seasonNumber] = hash.split('/');
-    
     if(season) {
       name = season;
     };
