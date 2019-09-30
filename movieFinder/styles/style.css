@@ -16,3 +16,13 @@
   .row {
       margin: 20px 0;
   }
+
+  a { 
+    color: inherit;
+  } 
+
+  a:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+

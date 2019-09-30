@@ -40,6 +40,25 @@
             {{/each}}
         </div>
     </div>
+    <div class="row d-flex justify-content-center">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" data-role="nav-page-1" href="#popular?page=1">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" data-role="nav-page-2" href="#popular?page=2">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" data-role="nav-page-3" href="#popular?page=3">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" data-role="nav-page-4" href="#popular?page=4">4</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" data-role="nav-page-5" href="#popular?page=5">5</a>
+          </li>
+        </ul>
+      </div>
 </script>
 
 <script id="topTemplate" type="text/template">
@@ -48,7 +67,7 @@
                 {{#each list}}
                 <div class="col-md-3">
                   <div class="well text-center">
-                    <a href="#popular/{{id}}">
+                    <a href="#top/{{id}}">
                         
                         <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}" 
                              onerror="this.onerror=null;this.src='images/no_image.png';"
@@ -60,6 +79,25 @@
                 </div>
                 {{/each}}
     </div>
+    <div class="row d-flex justify-content-center">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" data-role="nav-page-1" href="#top?page=1">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" data-role="nav-page-2" href="#top?page=2">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" data-role="nav-page-3" href="#top?page=3">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" data-role="nav-page-4" href="#top?page=4">4</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" data-role="nav-page-5" href="#top?page=5">5</a>
+    </li>
+  </ul>
+</div>
 </script>
 
 <script id="filmTemplate" type="text/template">
@@ -86,7 +124,7 @@
     
     <div class="col-md-3">
       <div class="well text-center">
-        <a href=""><img 
+        <a href="#popular/{{../id}}/season/{{season_number}}"><img 
                        src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}"
                        onerror="this.onerror=null;this.src='images/no_image.png';"
                        class="img">
@@ -97,6 +135,49 @@
       {{/each}}
     </div>
 </div>   
+</script>
+
+<script id="seasonTemplate" type="text/template">
+  <div class="row">
+          <div class="col-md-4">
+              <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}"
+                   onerror="this.onerror=null;this.src='images/no_image.png';"
+                   class="img">
+          </div>
+          <div class="col-md-8">
+            <h3>{{ name }}</h3>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Overview:</strong> {{ overview }} </li>
+              <li class="list-group-item"><strong>Air date:</strong> {{ air_date }} </li>
+              <li class="list-group-item"><strong>Episodes:</strong> {{ episodes.length }} </li>
+            </ul>
+          </div>
+  </div>
+  <div class="container">
+  <h4 class="text-center">Episodes</h4>
+
+
+  {{#each episodes}}
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="well text-center">
+        <img 
+            src="https://image.tmdb.org/t/p/w227_and_h127_bestv2{{ still_path }}"
+            onerror="this.onerror=null;this.src='images/no_image_small.png';"
+            class="img">
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h5>{{ name }}</h5>
+      <p>{{ overview }}</p>
+
+    </div>
+  </div>
+
+    {{/each}}
+</div>  
+
 </script>
       
 </body>
