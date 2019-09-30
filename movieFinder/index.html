@@ -1,185 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Explore best TV series - MovieFinder</title>
     <link href="styles/bootstrap.min.css" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
 </head>
+
 <body>
-<div class="container">
-    <div class="row">
-    <div class="btn-group btn-group-lg">
-        <a class="btn btn-secondary" data-role="nav-popular" href="#popular">Popular</a>
-        <a class="btn btn-secondary" data-role="nav-top" href="#top">Top</a>
-    </div>
-</div>
-
-    <div id="results"></div>
-</div>
-
-<script src="entry.js" type="module"></script>
-
-<script id="popularTemplate" type="text/template">
     <div class="container">
         <div class="row">
-            {{#each list}}
-            <div class="col-md-3">
-              <div class="well text-center">
-                <a href="#popular/{{id}}">                    
-                    <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}" 
-                         onerror="this.onerror=null;this.src='images/no_image.png';"
-                         class="img">
-
-                </a>
-                <h5>{{ original_name }}</h5>
-              </div>
+            <div class="btn-group btn-group-lg">
+                <a class="btn btn-secondary" data-role="nav-popular" href="#popular">Popular</a>
+                <a class="btn btn-secondary" data-role="nav-top" href="#top">Top</a>
             </div>
-            {{/each}}
         </div>
-    </div>
-    <div class="row d-flex justify-content-center">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" data-role="nav-page-1" href="#popular?page=1">1</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" data-role="nav-page-2" href="#popular?page=2">2</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" data-role="nav-page-3" href="#popular?page=3">3</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" data-role="nav-page-4" href="#popular?page=4">4</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" data-role="nav-page-5" href="#popular?page=5">5</a>
-          </li>
-        </ul>
-      </div>
-</script>
 
-<script id="topTemplate" type="text/template">
-    <div class="container">
+        <div id="results"></div>
+    </div>
+
+    <script src="entry.js" type="module"></script>
+
+    <script id="popularTemplate" type="text/template">
+        <div class="container">
             <div class="row">
                 {{#each list}}
                 <div class="col-md-3">
-                  <div class="well text-center">
-                    <a href="#top/{{id}}">
-                        
-                        <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}" 
-                             onerror="this.onerror=null;this.src='images/no_image.png';"
-                             class="img">
-                    
-                    </a>
-                    <h5>{{ original_name }}</h5>
-                  </div>
+                    <div class="well text-center">
+                        <a href="#popular/{{id}}">
+                            <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}" onerror="this.onerror=null;this.src='images/no_image.png';" class="img">
+
+                        </a>
+                        <h5>{{ original_name }}</h5>
+                    </div>
                 </div>
                 {{/each}}
-    </div>
-    <div class="row d-flex justify-content-center">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" data-role="nav-page-1" href="#top?page=1">1</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" data-role="nav-page-2" href="#top?page=2">2</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" data-role="nav-page-3" href="#top?page=3">3</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" data-role="nav-page-4" href="#top?page=4">4</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" data-role="nav-page-5" href="#top?page=5">5</a>
-    </li>
-  </ul>
-</div>
-</script>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" data-role="nav-page-1" href="#popular?page=1">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" data-role="nav-page-2" href="#popular?page=2">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" data-role="nav-page-3" href="#popular?page=3">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" data-role="nav-page-4" href="#popular?page=4">4</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" data-role="nav-page-5" href="#popular?page=5">5</a>
+                </li>
+            </ul>
+        </div>
+    </script>
 
-<script id="filmTemplate" type="text/template">
-    <div class="row">
+    <script id="topTemplate" type="text/template">
+        <div class="container">
+            <div class="row">
+                {{#each list}}
+                <div class="col-md-3">
+                    <div class="well text-center">
+                        <a href="#top/{{id}}">
+
+                            <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}" onerror="this.onerror=null;this.src='images/no_image.png';" class="img">
+
+                        </a>
+                        <h5>{{ original_name }}</h5>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="row d-flex justify-content-center">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" data-role="nav-page-1" href="#top?page=1">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" data-role="nav-page-2" href="#top?page=2">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" data-role="nav-page-3" href="#top?page=3">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" data-role="nav-page-4" href="#top?page=4">4</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" data-role="nav-page-5" href="#top?page=5">5</a>
+                    </li>
+                </ul>
+            </div>
+    </script>
+
+    <script id="filmTemplate" type="text/template">
+        <div class="row">
             <div class="col-md-4">
-                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}"
-                     onerror="this.onerror=null;this.src='images/no_image.png';"
-                     class="img">
+                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}" onerror="this.onerror=null;this.src='images/no_image.png';" class="img">
             </div>
             <div class="col-md-8">
-              <h3>{{ original_name }}</h3>
-              <ul class="list-group">
-                <li class="list-group-item"><strong>Plot:</strong> {{ overview }} </li>
-                <li class="list-group-item"><strong>Number of seasons:</strong> {{ number_of_seasons }} </li>
-                <li class="list-group-item"><strong>Number of episodes:</strong> {{ number_of_episodes }} </li>
-              </ul>
+                <h3>{{ original_name }}</h3>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Plot:</strong> {{ overview }} </li>
+                    <li class="list-group-item"><strong>Number of seasons:</strong> {{ number_of_seasons }} </li>
+                    <li class="list-group-item"><strong>Number of episodes:</strong> {{ number_of_episodes }} </li>
+                </ul>
             </div>
-    </div>
-    <div class="container">
-    <h4 class="text-center">Seasons</h4>
-    <div class="row">
-    
-    {{#each seasons}}
-    
-    <div class="col-md-3">
-      <div class="well text-center">
-        <a href="#popular/{{../id}}/season/{{season_number}}"><img 
-                       src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}"
-                       onerror="this.onerror=null;this.src='images/no_image.png';"
-                       class="img">
-        </a>
-        <h5>{{ name }}</h5>
-      </div>
-    </div>
-      {{/each}}
-    </div>
-</div>   
-</script>
+        </div>
+        <div class="container">
+            <h4 class="text-center">Seasons</h4>
+            <div class="row">
 
-<script id="seasonTemplate" type="text/template">
-  <div class="row">
-          <div class="col-md-4">
-              <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}"
-                   onerror="this.onerror=null;this.src='images/no_image.png';"
-                   class="img">
-          </div>
-          <div class="col-md-8">
-            <h3>{{ name }}</h3>
-            <ul class="list-group">
-              <li class="list-group-item"><strong>Overview:</strong> {{ overview }} </li>
-              <li class="list-group-item"><strong>Air date:</strong> {{ air_date }} </li>
-              <li class="list-group-item"><strong>Episodes:</strong> {{ episodes.length }} </li>
-            </ul>
-          </div>
-  </div>
-  <div class="container">
-  <h4 class="text-center">Episodes</h4>
+                {{#each seasons}}
 
+                <div class="col-md-3">
+                    <div class="well text-center">
+                        <a href="#popular/{{../id}}/season/{{season_number}}"><img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}" onerror="this.onerror=null;this.src='images/no_image.png';" class="img">
+                        </a>
+                        <h5>{{ name }}</h5>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </script>
 
-  {{#each episodes}}
+    <script id="seasonTemplate" type="text/template">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ poster_path }}" onerror="this.onerror=null;this.src='images/no_image.png';" class="img">
+            </div>
+            <div class="col-md-8">
+                <h3>{{ name }}</h3>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Overview:</strong> {{ overview }} </li>
+                    <li class="list-group-item"><strong>Air date:</strong> {{ air_date }} </li>
+                    <li class="list-group-item"><strong>Episodes:</strong> {{ episodes.length }} </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <h4 class="text-center">Episodes</h4>
 
-  <div class="row">
-    <div class="col-md-3">
-      <div class="well text-center">
-        <img 
-            src="https://image.tmdb.org/t/p/w227_and_h127_bestv2{{ still_path }}"
-            onerror="this.onerror=null;this.src='images/no_image_small.png';"
-            class="img">
-      </div>
-    </div>
-    <div class="col-md-9">
-      <h5>{{ name }}</h5>
-      <p>{{ overview }}</p>
+            <div class="panel-group" id="accordion">
+                {{#each episodes}}
 
-    </div>
-  </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="well text-center">
+                            <img src="https://image.tmdb.org/t/p/w227_and_h127_bestv2{{ still_path }}" onerror="this.onerror=null;this.src='images/no_image_small.png';" class="img">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <h5>{{ name }}</h5>
+                        <p>{{ overview }}</p>
 
-    {{/each}}
-</div>  
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
 
-</script>
-      
+    </script>
+
 </body>
-</html>
 
+</html>

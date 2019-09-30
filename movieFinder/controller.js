@@ -36,7 +36,6 @@ export default {
 
     async filmRoute(id) {
         const data = await Model.getFilm(id);
-
         filmPage.setData(data);
         filmPage.render();
     },
