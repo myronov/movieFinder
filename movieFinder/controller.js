@@ -30,7 +30,6 @@ function setActivePageNode(page) {
 export default {
     async seasonRoute(params) {
         const data = await Model.getSeason(params);
-        console.log(data);
         seasonPage.setData(data);
         seasonPage.render();
     },
