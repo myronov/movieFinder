@@ -1,5 +1,3 @@
-import Handlebars from './handlebars-v4.3.1.js';
-
 export default {
     render(templateName, model) {
         templateName = templateName + 'Template';
